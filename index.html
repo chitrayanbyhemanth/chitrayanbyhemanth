@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="Files/1.png">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Theme Config -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "surface-container-highest": "#e6e2da",
+            "inverse-primary": "#f8bc51",
+            "primary": "#7e5700",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#241a09",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#696253",
+            "tertiary": "#6c5c46",
+            "on-surface": "#1c1c17",
+            "tertiary-fixed-dim": "#d8c3a9",
+            "ivory": "#FAF6EE",
+            "on-secondary-fixed": "#1f1b10",
+            "surface-container-low": "#f7f3eb",
+            "secondary-container": "#e8dfcc",
+            "surface": "#fdf9f1",
+            "surface-tint": "#7e5700",
+            "surface-container-high": "#ece8e0",
+            "on-primary-container": "#462f00",
+            "on-primary-fixed-variant": "#5f4100",
+            "soft-sand": "#C8B49A",
+            "secondary": "#645e4f",
+            "error-container": "#ffdad6",
+            "champagne-gold": "#E8B84B",
+            "surface-bright": "#fdf9f1",
+            "background": "#fdf9f1",
+            "surface-container": "#f1ede6",
+            "surface-variant": "#e6e2da",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed": "#281900",
+            "ink-text": "#1A1208",
+            "on-background": "#1c1c17",
+            "primary-fixed-dim": "#f8bc51",
+            "secondary-fixed-dim": "#cfc6b3",
+            "tertiary-container": "#ac9980",
+            "inverse-on-surface": "#f4f0e8",
+            "primary-fixed": "#ffdeab",
+            "muted-gold": "rgba(200, 146, 42, 0.3)",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#c8922a",
+            "on-tertiary-container": "#3e311e",
+            "outline-variant": "#d4c4b0",
+            "on-secondary-fixed-variant": "#4c4638",
+            "inverse-surface": "#31302b",
+            "secondary-fixed": "#ebe1cf",
+            "warm-white": "#FFFFFF",
+            "on-surface-variant": "#504536",
+            "outline": "#827564",
+            "surface-dim": "#dddad2",
+            "on-tertiary-fixed-variant": "#534530",
+            "tertiary-fixed": "#f5dfc4",
+            "on-error": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "section-v-mobile": "80px",
+            "stack-lg": "48px",
+            "section-v": "120px",
+            "margin-h-mobile": "5%",
+            "gutter": "40px",
+            "margin-h": "8%",
+            "stack-md": "24px",
+            "stack-sm": "12px"
+          },
+          "fontFamily": {
+            "headline-xl-mobile": ["EB Garamond"],
+            "label-caps": ["Hanken Grotesk"],
+            "display-lg-mobile": ["EB Garamond"],
+            "headline-md": ["EB Garamond"],
+            "body-lg": ["EB Garamond"],
+            "body-md": ["EB Garamond"],
+            "label-sm": ["Hanken Grotesk"],
+            "display-lg": ["EB Garamond"],
+            "headline-xl": ["EB Garamond"]
+          },
+          "fontSize": {
+            "headline-xl-mobile": ["42px", { "lineHeight": "1.1", "fontWeight": "300" }],
+            "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "500" }],
+            "display-lg-mobile": ["52px", { "lineHeight": "1.0", "letterSpacing": "-0.01em", "fontWeight": "300" }],
+            "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "400" }],
+            "body-lg": ["20px", { "line": "1.8", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "1.7", "fontWeight": "400" }],
+            "label-sm": ["10px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "400" }],
+            "display-lg": ["110px", { "lineHeight": "0.95", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+            "headline-xl": ["82px", { "lineHeight": "1.1", "fontWeight": "300" }]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .luxury-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .luxury-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gold-border-focus:focus {
+      border-bottom-width: 2px;
+      outline: none;
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(24px);
+    }
+
+    .gallery-mat {
+      padding: 15px;
+      /* Light Mode: background: white; */
+      background: #0D0A07;
+      border: 1px solid rgba(200, 146, 42, 0.15);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+
+  <div id="loader">
+    <div class="loader-brand">Chitrayan</div>
+    <div class="loader-line"></div>
+    <div class="loader-sub">By Hemanth — Visual Storytelling</div>
+  </div>
+
+  <nav class="nav" id="nav">
+
+    <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer">
+      <span class="logo-main">Chitrayan</span>
+      <span class="logo-sub">by Hemanth</span>
+    </div>
+    <div class="nav-links">
+      <button class="nav-link active" onclick="window.location.href='index.html'" id="nav-home">Home</button>
+      <!-- <button class="nav-link" onclick="window.location.href='weddings.html'" id="nav-weddings">Weddings</button>
+      <div class="dropdown">
+        <button class="nav-link">Experiences ▾</button>
+        <div class="dropdown-menu">
+          <button class="dropdown-item"
+            onclick="window.location.href='gallery.html?section=experiences&id=birthday'">Birthday Stories<div
+              class="dropdown-sub">
+              Birthdays</div></button>
+          <button class="dropdown-item"
+            onclick="window.location.href='gallery.html?section=experiences&id=housewarming'">New Beginnings<div
+              class="dropdown-sub">
+              Housewarming · Gruhapravesam</div></button>
+          <button class="dropdown-item"
+            onclick="window.location.href='gallery.html?section=experiences&id=maternity'">Motherhood Journey<div
+              class="dropdown-sub">
+              Maternity · Seemantham</div></button> -->
+      <!-- <button class="dropdown-item"
+            onclick="window.location.href='gallery.html?section=experiences&id=halfsaree'">Half Saree Tales<div
+              class="dropdown-sub">
+              Half Saree Functions</div></button> -->
+    </div>
+    </div>
+    <!-- <div class="dropdown">
+      <button class="nav-link">Portfolio ▾</button>
+      <div class="dropdown-menu">
+        <button class="dropdown-item"
+          onclick="window.location.href='gallery.html?section=portfolio&id=signature'">Signature Gallery<div
+            class="dropdown-sub">
+            Best curated work</div></button>
+        <button class="dropdown-item"
+          onclick="window.location.href='gallery.html?section=portfolio&id=portraits'">Portrait Stories<div
+            class="dropdown-sub">
+            Portraits · People</div></button>
+        <button class="dropdown-item"
+          onclick="window.location.href='gallery.html?section=portfolio&id=products'">Product Stories<div
+            class="dropdown-sub">
+            Product Photography</div></button>
+        <button class="dropdown-item" onclick="window.location.href='gallery.html?section=portfolio&id=street'">Street
+          Frames<div class="dropdown-sub">Street
+            Photography</div></button>
+      </div> -->
+    <!-- </div>
+    <button class="nav-link" onclick="window.location.href='stories.html'" id="nav-stories">Stories</button>
+    <div class="dropdown">
+      <button class="nav-link">Connect ▾</button>
+      <div class="dropdown-menu">
+        <button class="dropdown-item" onclick="window.location.href='connect.html?type=book'">Book a Session<div
+            class="dropdown-sub">
+            Schedule your story</div></button>
+        <button class="dropdown-item" onclick="window.location.href='connect.html?type=collaborate'">Collaborate With
+          Us<div class="dropdown-sub">Brand partnerships</div></button>
+        <button class="dropdown-item" onclick="window.location.href='connect.html?type=hello'">Say Hello<div
+            class="dropdown-sub">Just
+            reach out</div></button>
+      </div>
+    </div> -->
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <!-- Light Mode Toggle (Disabled)
+      <button class="theme-toggle" onclick="toggleTheme(event)" style="background:none;border:none;color:var(--champagne);cursor:pointer;display:flex;align-items:center;padding:4px;transition:all 0.3s;" aria-label="Toggle Theme" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--champagne)'">
+        <span class="material-symbols-outlined theme-icon" style="font-size:20px;">light_mode</span>
+      </button>
+      -->
+      <button class="book-btn" onclick="window.location.href='connect.html?type=book'">Book Now</button>
+    </div>
+
+  </nav>
+
+  <div id="app">
+    <div class="hero page-wrap">
+      <div class="hero-slide active" id="slide0">
+        <img src="assets/DSC07202-2.jpg" alt="">
+      </div>
+      <div class="hero-slide" id="slide1">
+        <img src="assets/hitansh.jpg" alt="Hitansh - HBD">
+      </div>
+      <div class="hero-slide" id="slide2">
+        <img src="assets/DSC06589.jpg" alt="Aishu - Classical Dancer">
+      </div>
+      <div class="hero-slide" id="slide3">
+        <img src="assets/DSC04209.jpg" alt="Pellam">
+      </div>
+      <div class="overlay-main"></div>
+      <div class="overlay-side"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Luxury Photography · Hyderabad</span>
+        </div>
+        <h1 class="hero-h1">Every Frame<br><em>a Story</em></h1>
+        <p class="hero-sub">Cinematic weddings, intimate portraits &amp; timeless Indian celebrations</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="window.location.href='weddings.html'">Explore Work</button>
+          <button class="btn-outline" onclick="window.location.href='connect.html?type=book'">Book a Session</button>
+        </div>
+      </div>
+      <div class="slide-dots">
+        <button class="slide-dot active" style="width:32px" onclick="goSlide(0)" id="dot0"></button><button
+          class="slide-dot" style="width:8px" onclick="goSlide(1)" id="dot1"></button><button class="slide-dot"
+          style="width:8px" onclick="goSlide(2)" id="dot2"></button><button class="slide-dot" style="width:8px"
+          onclick="goSlide(3)" id="dot3"></button>
+      </div>
+      <div class="scroll-hint">
+        <span class="scroll-label">Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+    <div class="about">
+      <div>
+        <div class="section-eye">
+          <div class="section-line" style="width:40px"></div><span class="section-eyebrow">About ChitraYan</span>
+        </div>
+        <h2 class="h2">Not just photography.<br><em>Storytelling.</em></h2>
+        <p class="body-serif">I am Hemanth — a photographer who believes the most powerful images aren't staged. They're
+          caught in the quiet seconds between posed portraits. The laugh that starts but doesn't finish. The grandmother
+          who watches silently.</p>
+        <p class="body-muted">Based in Hyderabad, specialising in weddings, cultural celebrations, and intimate portrait
+          stories across India.</p>
+        <button
+          style="margin-top:36px;border:1px solid var(--gold);color:var(--gold);font-size:11px;letter-spacing:.28em;text-transform:uppercase;padding:13px 34px;transition:all .3s;font-family:inherit"
+          onmouseover="this.style.background='var(--gold)';this.style.color='var(--deep)'"
+          onmouseout="this.style.background='';this.style.color='var(--gold)'"
+          onclick="window.location.href='stories.html'">Read My Stories</button>
+      </div>
+      <div style="position:relative;width:500px;height:520px;overflow:hidden;">
+        <img src="assets/Hemanth.jpg" alt="Hemanth"
+          style="width:100%;height:100%;object-fit:contain;display:block;background:#000;">
+
+        <div style="position:absolute;bottom:0;left:0;background:#0b0500;padding:10px 25px;z-index:2;">
+          <div style="font-size:48px;color:#d89b2b;line-height:1;">50+</div>
+          <div style="color:#c8a66a;letter-spacing:3px;text-transform:uppercase;font-size:12px;">
+            Stories Captured
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="services-section">
+      <div class="services-marquee">
+        SERVICES SERVICES SERVICES SERVICES SERVICES SERVICES SERVICES SERVICES SERVICES
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3 class="service-title">PHOTOGRAPHY</h3>
+          <p class="service-desc">Candid photography (focusing on natural candid shots of the bride-groom and main
+            family) &amp; traditional photography (coverage of the entire event).</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">VIDEOGRAPHY</h3>
+          <p class="service-desc">Cinematography (artistic style videography with focus on the bride-groom and main
+            family and their priceless candid moments) &amp; traditional videography (coverage of the entire event).</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">PHOTOBOOKS &amp; ALBUMS</h3>
+          <p class="service-desc">Handcrafted custom designed wedding photo books and albums to cater to every taste and
+            preference.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">POST-PRODUCTION</h3>
+          <p class="service-desc">Editing services in cinematic teaser and short film &amp; traditional video.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- <div style="padding:100px 8% 100px">
+      <div class="section-header">
+        <div style="display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:18px">
+          <div style="width:56px;height:1px;background:var(--amber)"></div>
+          <span style="font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold)">Featured
+            Work</span>
+          <div style="width:56px;height:1px;background:var(--amber)"></div>
+        </div>
+        <h2 class="section-title">Wedding Stories</h2>
+      </div>
+      <div class="gallery-grid g-3" style="grid-auto-rows:290px">
+        <div class="g-card " onclick="window.location.href='gallery.html?id=haldi'" style="background:var(--ink)">
+          <img src="" alt="Haldi" loading="lazy">
+          <div class="g-base-overlay"></div>
+          <div class="g-hover-overlay" style="background:rgba(200,146,42,.9)">
+            <div class="g-content">
+              <div class="g-accent-line"></div>
+              <div class="g-cat">Haldi</div>
+              <div class="g-tagline">Golden laughter, timeless rituals.</div>
+              <div class="g-explore">Explore <span class="g-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="g-default-label">
+            <div class="g-def-cat">Haldi</div>
+            <div class="g-def-desc">Where turmeric meets joy</div>
+          </div>
+        </div>
+        <div class="g-card " onclick="window.location.href='gallery.html?id=mehendi'" style="background:var(--ink)">
+          <img src="" alt="Mehendi" loading="lazy">
+          <div class="g-base-overlay"></div>
+          <div class="g-hover-overlay" style="background:rgba(74,103,65,.88)">
+            <div class="g-content">
+              <div class="g-accent-line"></div>
+              <div class="g-cat">Mehendi</div>
+              <div class="g-tagline">Stories drawn in henna, love inked forever.</div>
+              <div class="g-explore">Explore <span class="g-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="g-default-label">
+            <div class="g-def-cat">Mehendi</div>
+            <div class="g-def-desc">Ancient art, modern hearts</div>
+          </div>
+        </div>
+        <div class="g-card " onclick="window.location.href='gallery.html?id=sangeet'" style="background:var(--ink)">
+          <img src="" alt="Sangeet" loading="lazy">
+          <div class="g-base-overlay"></div>
+          <div class="g-hover-overlay" style="background:rgba(139,58,82,.88)">
+            <div class="g-content">
+              <div class="g-accent-line"></div>
+              <div class="g-cat">Sangeet</div>
+              <div class="g-tagline">Where emotions dance with celebration.</div>
+              <div class="g-explore">Explore <span class="g-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="g-default-label">
+            <div class="g-def-cat">Sangeet</div>
+            <div class="g-def-desc">Music, movement, memories</div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px">
+        <button onclick="window.location.href='weddings.html'"
+          style="border:1px solid rgba(250,246,238,.25);color:var(--champagne);font-size:11px;letter-spacing:.25em;text-transform:uppercase;padding:14px 44px;transition:all .3s;font-family:inherit"
+          onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(250,246,238,.25)';this.style.color='var(--champagne)'">View All
+          Weddings</button>
+      </div>
+    </div> -->
+    <div class="exp-strip">
+      <div class="section-header">
+        <h2 class="section-title" style="margin-bottom:8px">Every Celebration<br><em>Deserves a Story</em></h2>
+      </div>
+      <div class="gallery-grid grid-cols-3" style="grid-auto-rows:280px">
+        <div class="g-card " onclick="window.location.href='gallery.html?section=experiences&id=birthday'"
+          style="background:var(--ink)">
+          <img src="assets/Hitansh2.jpg" alt="Birthday Stories" loading="lazy">
+          <div class="g-base-overlay"></div>
+          <div class="g-hover-overlay" style="background:rgba(200,146,42,.88)">
+            <div class="g-content">
+              <div class="g-accent-line"></div>
+              <div class="g-cat">Birthday Stories</div>
+              <div class="g-tagline">Another year, another chapter.</div>
+              <div class="g-explore">Explore <span class="g-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="g-default-label">
+            <div class="g-def-cat">Birthday Stories</div>
+            <div class="g-def-desc">Birthdays reimagined</div>
+          </div>
+        </div>
+        <div class="g-card " onclick="window.location.href='gallery.html?section=experiences&id=housewarming'"
+          style="background:var(--ink)">
+          <img src="assets/Poorna.jpg" alt="New Beginnings" loading="lazy">
+          <div class="g-base-overlay"></div>
+          <div class="g-hover-overlay" style="background:rgba(74,103,65,.88)">
+            <div class="g-content">
+              <div class="g-accent-line"></div>
+              <div class="g-cat">New Beginnings</div>
+              <div class="g-tagline">Where walls become home.</div>
+              <div class="g-explore">Explore <span class="g-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="g-default-label">
+            <div class="g-def-cat">New Beginnings</div>
+            <div class="g-def-desc">Gruhapravesam</div>
+          </div>
+        </div>
+        <div class="g-card " onclick="window.location.href='gallery.html?section=experiences&id=maternity'"
+          style="background:var(--ink)">
+          <img src="assets/Babyshoot.jpg" alt="Motherhood Journey" loading="lazy">
+          <div class="g-base-overlay"></div>
+          <div class="g-hover-overlay" style="background:rgba(139,58,82,.88)">
+            <div class="g-content">
+              <div class="g-accent-line"></div>
+              <div class="g-cat">Motherhood Journey</div>
+              <div class="g-tagline">Life before life begins — sacred.</div>
+              <div class="g-explore">Explore <span class="g-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="g-default-label">
+            <div class="g-def-cat">Motherhood Journey</div>
+            <div class="g-def-desc">Maternity · Seemantham</div>
+          </div>
+        </div>
+        <!-- <div class="g-card " onclick="window.location.href='gallery.html?section=experiences&id=halfsaree'"
+          style="background:var(--ink)">
+          <img src="" alt="Half Saree Tales" loading="lazy">
+          <div class="g-base-overlay"></div>
+          <div class="g-hover-overlay" style="background:rgba(160,72,50,.88)">
+            <div class="g-content">
+              <div class="g-accent-line"></div>
+              <div class="g-cat">Half Saree Tales</div>
+              <div class="g-tagline">The day a girl steps into her stories.</div>
+              <div class="g-explore">Explore <span class="g-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="g-default-label">
+            <div class="g-def-cat">Half Saree Tales</div>
+            <div class="g-def-desc">Half saree ceremonies</div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="cta">
+      <img src="" alt="">
+      <div class="cta-overlay"></div>
+      <div class="cta-inner">
+        <div style="font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:22px">
+          Your Story Awaits</div>
+        <h2 class="section-title" style="font-size:clamp(40px,6vw,80px);margin-bottom:28px">Let's Create
+          Something<br><em>Unforgettable</em></h2>
+        <p
+          style="font-family:'EB Garamond',Georgia,serif;font-size:17px;color:var(--champagne);max-width:440px;margin:0 auto 44px;line-height:1.8;font-style:italic">
+          Limited sessions available each month. Book early to secure your date.</p>
+        <button class="btn-primary" style="font-size:12px;padding:18px 56px"
+          onclick="window.location.href='connect.html?type=book'">Book a Session</button>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="logo"><span class="logo-main">ChitraYan</span><span class="logo-sub">by Hemanth</span></div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/chitrayanbyhemanth?igsh=MWZuZmpsejZwajl1Yw=="
+          class="footer-link">Instagram</a>
+        <a href="https://wa.me/919491512499" class="footer-link">WhatsApp</a>
+        <a href="mailto:chitrayanbyhemanth@gmail.com" class="footer-link">Email</a>
+      </div>
+      <span class="footer-copy">© 2024 ChitraYan by Hemanth · Hyderabad</span>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('nav-home')?.classList.add('active');
+    });
+  </script>
+</body>
+
+</html>
