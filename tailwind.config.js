@@ -1,0 +1,106 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./*.html", "./*.js"],
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "error": "#ba1a1a",
+        "surface-container-highest": "#e6e2da",
+        "inverse-primary": "#f8bc51",
+        "primary": "#7e5700",
+        "on-primary": "#ffffff",
+        "on-tertiary-fixed": "#241a09",
+        "on-error-container": "#93000a",
+        "surface-container-lowest": "#ffffff",
+        "on-secondary-container": "#696253",
+        "tertiary": "#6c5c46",
+        "on-surface": "#1c1c17",
+        "tertiary-fixed-dim": "#d8c3a9",
+        "ivory": "#FAF6EE",
+        "on-secondary-fixed": "#1f1b10",
+        "surface-container-low": "#f7f3eb",
+        "secondary-container": "#e8dfcc",
+        "surface": "#fdf9f1",
+        "surface-tint": "#7e5700",
+        "surface-container-high": "#ece8e0",
+        "on-primary-container": "#462f00",
+        "on-primary-fixed-variant": "#5f4100",
+        "soft-sand": "#C8B49A",
+        "secondary": "#645e4f",
+        "error-container": "#ffdad6",
+        "champagne-gold": "#E8B84B",
+        "surface-bright": "#fdf9f1",
+        "background": "#fdf9f1",
+        "surface-container": "#f1ede6",
+        "surface-variant": "#e6e2da",
+        "on-secondary": "#ffffff",
+        "on-primary-fixed": "#281900",
+        "ink-text": "#1A1208",
+        "on-background": "#1c1c17",
+        "primary-fixed-dim": "#f8bc51",
+        "secondary-fixed-dim": "#cfc6b3",
+        "tertiary-container": "#ac9980",
+        "inverse-on-surface": "#f4f0e8",
+        "primary-fixed": "#ffdeab",
+        "muted-gold": "rgba(200, 146, 42, 0.3)",
+        "on-tertiary": "#ffffff",
+        "primary-container": "#c8922a",
+        "on-tertiary-container": "#3e311e",
+        "outline-variant": "#d4c4b0",
+        "on-secondary-fixed-variant": "#4c4638",
+        "inverse-surface": "#31302b",
+        "secondary-fixed": "#ebe1cf",
+        "warm-white": "#FFFFFF",
+        "on-surface-variant": "#504536",
+        "outline": "#827564",
+        "surface-dim": "#dddad2",
+        "on-tertiary-fixed-variant": "#534530",
+        "tertiary-fixed": "#f5dfc4",
+        "on-error": "#ffffff"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "section-v-mobile": "80px",
+        "stack-lg": "48px",
+        "section-v": "120px",
+        "margin-h-mobile": "5%",
+        "gutter": "40px",
+        "margin-h": "8%",
+        "stack-md": "24px",
+        "stack-sm": "12px"
+      },
+      "fontFamily": {
+        "headline-xl-mobile": ["EB Garamond"],
+        "label-caps": ["Hanken Grotesk"],
+        "display-lg-mobile": ["EB Garamond"],
+        "headline-md": ["EB Garamond"],
+        "body-lg": ["EB Garamond"],
+        "body-md": ["EB Garamond"],
+        "label-sm": ["Hanken Grotesk"],
+        "display-lg": ["EB Garamond"],
+        "headline-xl": ["EB Garamond"]
+      },
+      "fontSize": {
+        "headline-xl-mobile": ["42px", { "lineHeight": "1.1", "fontWeight": "300" }],
+        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "500" }],
+        "display-lg-mobile": ["52px", { "lineHeight": "1.0", "letterSpacing": "-0.01em", "fontWeight": "300" }],
+        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "400" }],
+        "body-lg": ["20px", { "line": "1.8", "fontWeight": "400" }],
+        "body-md": ["16px", { "lineHeight": "1.7", "fontWeight": "400" }],
+        "label-sm": ["10px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "400" }],
+        "display-lg": ["110px", { "lineHeight": "0.95", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+        "headline-xl": ["82px", { "lineHeight": "1.1", "fontWeight": "300" }]
+      }
+    }
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/container-queries')
+  ]
+};

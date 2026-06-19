@@ -1,0 +1,14 @@
+{
+  "name": "chitrayanbyhemanth",
+  "version": "1.0.0",
+  "description": "ChitraYan by Hemanth Photography Portfolio",
+  "scripts": {
+    "build": "tailwindcss -i ./input.css -o ./output.css --minify",
+    "dev": "tailwindcss -i ./input.css -o ./output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.4",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/container-queries": "^0.1.1"
+  }
+}
